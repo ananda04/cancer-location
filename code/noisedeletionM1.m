@@ -17,12 +17,12 @@ allspec = []
 for k1 = 1:L
     allspec = cat(2, allspec, squeeze(reconstructedData(r(k1),c(k1),:)))
 end
-
+%%
 magnitude = sqrt(sum(allspec.^2))
 normallspec = allspec./magnitude
 
-noisallspec = add_awgn_noise(normallspec,5)
-noisallspec(noisallspec<0)=0
+%noiseallspec = add_awgn_noise(normallspec,5)
+%noiseallspec(noiseallspec<0)=0
 
 % 25 choosen points 
 cancer = squeeze(reconstructedData(79,23,:))+squeeze(reconstructedData(73,23,:))+squeeze(reconstructedData(82,23,:))+squeeze(reconstructedData(81,21,:))+squeeze(reconstructedData(79,19,:))+squeeze(reconstructedData(79,22,:))+squeeze(reconstructedData(78,25,:))+squeeze(reconstructedData(78,27,:))+squeeze(reconstructedData(76,26,:))+squeeze(reconstructedData(77,26,:))+squeeze(reconstructedData(80,33,:))+squeeze(reconstructedData(75,32,:))+squeeze(reconstructedData(74,30,:))+squeeze(reconstructedData(83,34,:))+squeeze(reconstructedData(79,33,:))+squeeze(reconstructedData(77,33,:))+squeeze(reconstructedData(74,31,:))+squeeze(reconstructedData(77,30,:))+squeeze(reconstructedData(79,28,:))+squeeze(reconstructedData(86,27,:))+squeeze(reconstructedData(87,35,:))+squeeze(reconstructedData(84,37,:))+squeeze(reconstructedData(81,36,:))+squeeze(reconstructedData(80,34,:))+squeeze(reconstructedData(86,31,:))
@@ -42,14 +42,13 @@ magavggraym = sqrt(sum(avggraym.^2))
 normavgcancer = avgcancer./magavgcancer
 normavgwhitem = avgwhitem./magavgwhitem
 normavggraym = avggraym./magavggraym
+pickednorm = [normavgcancer,normavgwhitem,normavggraym]
 
 %% denoising 
-z = sgolayfilt(1,2256)
-
-Mnoisallspec = conv2(noisallspec,z(:,1).','same')
-
-figure(2);plot(qvals, normallspec,'b',qvals, Mnoisallspec,'r')
-
+denoise = wdenoise(normallspec)
+denoise(denoise<0)=0
+ figure(6);plot(qvals, denoise,'r')
+%% abundace
 
 i1 = []
 j1 = []
@@ -68,7 +67,6 @@ end
 ijk = [i1,
        j1,
        k1]
-
 r = []
 l = length(i1)
 for m = 1:l
@@ -77,7 +75,7 @@ end
 
 t = []
 for b = 1:l
-    t = cat(2,t, sum(Mnoisallspec.*r(:,b)))
+    t = cat(2,t, sum(denoise.*r(:,b)))
 end 
 
 %t= t-1
@@ -85,7 +83,7 @@ end
 %t(t<0) = 0
 [M, g] = max(t)
 u = rem(g,62)
-u=u+1
+
 w = ijk(:,u)
 
 %x = w(1,:).*normavgcancer+w(2,:).*normavgwhitem+w(3,:).*normavggraym

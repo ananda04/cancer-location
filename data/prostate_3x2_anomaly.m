@@ -1,17 +1,8 @@
-load('ReconResults_Prostate_V2_300iter_M3_Try1.mat')
+load('ReconResults_Prostate_V3_300iter_M3_Try1.mat')
 
 % Create a mask of the background only for prostate slies
-a =  imagesc(squeeze(reconstructedData(:, :, 22)))
-mask = imbinarize(imagesc(squeeze(reconstructedData(:, :, 22))))
+mask = imbinarize(squeeze(reconstructedData(:, :, 28)))
 
-%load('prostate.mat')
-%figure(1);imshow(pro)
-%redChannel = pro(:, :, 1);
-%greenChannel = pro(:, :, 2);
-%blueChannel = pro(:, :, 3);
-%mask = blueChannel > 254, redChannel > 254, greenChannel > 254;
-%figure(3); imshow(mask)
-%hold on;
 
 % collect all data 
 [r c] = find(mask == 1)

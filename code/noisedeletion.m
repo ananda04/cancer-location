@@ -22,9 +22,9 @@ normavgwhitem = avgwhitem./magavgwhitem
 normavggraym = avggraym./magavggraym
 
 % given weights
-weightc = 0.5.*normavgcancer
-weightwm = 0.4.*normavgwhitem
-weightgm = 0.1*normavggraym
+weightc = 0.2.*normavgcancer
+weightwm = 0.5.*normavgwhitem
+weightgm = 0.3*normavggraym
 weightedspec = [weightc,weightwm,weightgm]
 
 %noise + weights
@@ -40,7 +40,7 @@ gausgm(gausgm<0)=0
 gausspec = [gauscan,gauswm,gausgm]
 
 
-k = width(gauscan)
+%k = width(gauscan)
 %Mcancer = conv(weightc,gauscan)
 %Mwhitem = conv(weightwm,gauswm)
 %Mgraym = conv(weightgm,gausgm)
@@ -48,6 +48,7 @@ k = width(gauscan)
 %Mcancer = movmean(gauscan,k,2)
 %Mwhitem = movmean(gauswm,k,2
 %Mgraym = movmean(gausgm,k,2)
+%% Savitzy-golay smoothing of noisy sinusoid
 g = sgolayfilt(1,5)
 
 Mcancer = conv(gauscan,g(:,1).','same')
@@ -58,8 +59,14 @@ Mgraym = conv(gausgm,g(:,1).','same')
 figure(1);plot(qvals, weightc,'b',qvals, Mcancer,'r')
 figure(2);plot(qvals, weightwm,'b',qvals, Mwhitem,'r')
 figure(3);plot(qvals, weightgm,'b',qvals, Mgraym,'r')
-
- 
+%% Wavelet Signal denoising
+Mcancer = wdenoise(gauscan)
+Mcancer(Mcancer<0)=0
+Mwhitem = wdenoise(gauswm)
+Mwhitem(Mwhitem<0)=0
+Mgraym = wdenoise(gausgm)
+Mgraym(Mgraym<0)=0
+%% abundance
 i1 = []
 j1 = []
 k1 = []
