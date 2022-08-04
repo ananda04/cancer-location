@@ -45,8 +45,8 @@ normavggraym = avggraym./magavggraym
 pickednorm = [normavgcancer,normavgwhitem,normavggraym]
 
 %% denoising 
-denoise = wdenoise(normallspec)
-denoise(denoise<0)=0
+ denoise = wdenoise(normallspec)
+ denoise(denoise<0)=0
  figure(6);plot(qvals, denoise,'r')
 %% abundace
 
@@ -77,15 +77,8 @@ t = []
 for b = 1:l
     t = cat(2,t, sum(denoise.*r(:,b)))
 end 
-
-%t= t-1
-%t= -t
-%t(t<0) = 0
 [M, g] = max(t)
 u = rem(g,62)
-
 w = ijk(:,u)
 
-%x = w(1,:).*normavgcancer+w(2,:).*normavgwhitem+w(3,:).*normavggraym
 
-%f = sum(noisallspec.*x)

@@ -1,4 +1,4 @@
-%% moving mean denoising algorithm
+% moving mean denoising algorithm
 
 load('ReconResults_Model_3_BrainScan_GBMT_FullFanExtent_400iter_M3.mat')
 
