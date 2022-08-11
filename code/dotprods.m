@@ -1,4 +1,4 @@
-function [w] = abundancefunc(pixel)
+function [t] = dotprods(pixel)
     load('ReconResults_Model_3_BrainScan_GBMT_FullFanExtent_400iter_M3.mat')
 
     % 25 choosen points 

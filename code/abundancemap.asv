@@ -16,30 +16,32 @@ for k1 = 1:L
     allspec = cat(2, allspec, squeeze(reconstructedData(r(k1),c(k1),:)))
 end
 %%
-%g = sgolayfilt(0,3)
-%allspec1 = []
-%for s1 = 1:2256
-%    allspec1 = [allspec1, conv(allspec(:,s1),g(:,1).','same')]
-%end 
-magnitude = sqrt(sum(allspec.^2))
-pixel = allspec./magnitude
+g = sgolayfilt(0,3)
+allspec1 = []
+for s1 = 1:2256
+    allspec1 = [allspec1, conv(allspec(:,s1),g(:,1).','same')]
+end 
+magnitude = sqrt(sum(allspec1.^2))
+pixel = allspec1./magnitude
 
 %% mapping
 w= []
-w = [w,dotprods(pixel)]
-t =  reshape(w, [62 2256])
-%%
-z = abundvals(t)
+%for s1 = 1:2256
+    w = [w,dotprods(pixel)]
+    t =  reshape(w, [62 2256])
+    for 1: 
+    z = abundvals(t)
+%end 
+
 %%
 mask = []
 mask1 = []
 mask2 = []
 for s1 = 1:2256
-    mask(r(s1),c(s1),:) = [z(1,s1),0,0]
-    mask1(r(s1),c(s1),:) = [0,z(2,s1),0]
-    mask2(r(s1),c(s1),:) = [0,0,z(3,s1)]
+    mask(r(s1),c(s1),:) = [w(1,s1),0,0]
+    mask1(r(s1),c(s1),:) = [0,w(2,s1),0]
+    mask2(r(s1),c(s1),:) = [0,0,w(3,s1)]
 end
 figure(2);imshow(mask)
 figure(4);imshow(mask1)
 figure(5);imshow(mask2)
-figure(11); imshow(mask+mask1+mask2)
