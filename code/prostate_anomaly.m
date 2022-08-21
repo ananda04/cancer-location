@@ -1,8 +1,8 @@
 load('ReconResults_Prostate_V2_300iter_M3_Try1.mat')
+import umapFileExchange.*;
 
 % Create a mask of the background only for prostate slies
-a =  imagesc(squeeze(reconstructedData(:, :, 22)))
-mask = imbinarize(imagesc(squeeze(reconstructedData(:, :, 22))))
+mask = imbinarize(squeeze(reconstructedData(:, :, 22)))
 
 %load('prostate.mat')
 %figure(1);imshow(pro)
@@ -73,24 +73,85 @@ for d1 = 1:L
         end
     end
 end
-
+xcan = []
+ycan = []
+xnocan= []
+ynocan = []
+xcalc = []
+ycalc = []
 similar1 = transpose(similar)
 figure(3); imshow(mask)
 hold on;
 for f1 = 1:L
     if similar1(f1) == 1
         figure(3); plot(c(f1),r(f1),'rx')
+        xcan = [xcan,c(f1)]
+        ycan = [ycan, r(f1)]
         hold on;
     elseif similar1(f1) == 2
         figure(3); plot(c(f1),r(f1),'bx')
+        xnocan = [xnocan,c(f1)]
+        ynocan = [ynocan, r(f1)]
         hold on;
     elseif similar1(f1) == 3
         figure(3); plot(c(f1),r(f1),'yx')
+        xcalc = [xcalc,c(f1)]
+        ycalc = [ycalc,r(f1)]
         hold on;
     end
 end
-legend(['rx','bx','yx'],'Cancer', 'White Matter','Gray Matter' )
+l = length(xcan)
+canspec = []
+for k1 = 1:l
+    canspec = cat(2, canspec, squeeze(reconstructedData(ycan(k1),xcan(k1),:)))
+end
+l = length(xnocan)
+nocanspec = []
+for k1 = 1:l
+    nocanspec = cat(2, nocanspec, squeeze(reconstructedData(ynocan(k1),xnocan(k1),:)))
+end
+l = length(xcalc)
+calcspec = []
+for k1 = 1:l
+    calcspec = cat(2, calcspec, squeeze(reconstructedData(ycalc(k1),xcalc(k1),:)))
+end
 
-figure(4); imagesc(squeeze(reconstructedData(:, :, 22)))
+%% UMAP reduction 
+import umapFileExchange.*;
+[reduction] = run_umap(canspec)
+[reduction1] = run_umap(nocanspec)
+[reduction2] = run_umap(calcspec)
+figure(4); plot(reduction(:,1), reduction(:,2),'r.')
 hold on;
-figure(4); plot(c,r,'gx')
+figure(4); plot(reduction1(:,1), reduction1(:,2),'b.')
+hold on;
+figure(4); plot(reduction2(:,1), reduction2(:,2),'y.')
+legend('Cancer', 'No cancer','Calcification' )
+
+%%
+canspec = transpose(canspec)
+nocanspec = transpose(nocanspec)
+calcspec = transpose(calcspec)
+
+avgcanspec = sum(canspec)/25
+avgnocanspec = sum(nocanspec)/25
+avgcalcspec = sum(calcspec)/25
+
+errblue = std(canspec)
+errgreen = std(nocanspec)
+errred = std(calcspec)
+
+% Plot graphs with error bars
+figure(5); xlabel('q [1/A]'); ylabel('XRD amplitude [arb]'); title("Spectra Line Graph with Error Bars"); 
+e1 = errorbar(qvals, avgcanspec,errblue); 
+e1.Color = 'r'
+hold on;
+figure(5); e2 = errorbar(qvals, avgnocanspec,errgreen); 
+e2.Color = 'b'
+hold on;
+figure(5); e3 = errorbar(qvals, avgcalcspec, errred); 
+e3.Color = 'y'
+legend([e1(1),e2(1),e3(1)],'Cancer', 'No cancer','Calcification' )
+
+
+

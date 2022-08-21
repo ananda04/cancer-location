@@ -30,9 +30,9 @@ function [t] = dotprods(pixel)
     i1 = []
     j1 = []
     k1 = []
-    for i = 0:0.1:1
-        for j = 0:0.1:1
-            for k = 0:0.1:1
+    for i = 0:0.05:1
+        for j = 0:0.05:1
+            for k = 0:0.05:1
                 if i+j+k == 1 
                     i1 = [i1, i]
                     j1 = [j1, j]

@@ -72,3 +72,11 @@ for f1 = 1:L
         hold on;
     end
 end
+%%
+cancercheck = []
+for f1 = 1:l
+    if similar1(f1) ==3
+        cancercheck = cat(2, cancercheck, squeeze(reconstructedData3(r(f1),c(f1),:)))
+    end
+end
+figure(11); plot(qvals, cancercheck)

@@ -3,9 +3,9 @@ load('Alzheimers.mat')
 figure(1); imshow(AA)
 
 % Create a mask of the background only for Alzheimers slies
-redChannel = e2(:, :, 1);
-greenChannel = e2(:, :, 2);
-blueChannel = e2(:, :, 3);
+redChannel = AA(:, :, 1);
+greenChannel = AA(:, :, 2);
+blueChannel = AA(:, :, 3);
 
 mask = blueChannel > 200, redChannel > 200, greenChannel > 200;
 figure(3); imshow(mask)

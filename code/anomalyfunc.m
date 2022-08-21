@@ -1,22 +1,11 @@
-function anomalyfunc(r,r1) 
-    [r c] = find(mask == 0)
-    L = length(r)
-    allspec = []
-    for k1 = 1:L
-        allspec = cat(2, allspec, squeeze(reconstructedData(r(k1),c(k1),:)))
-    end
-    magnitude = sqrt(sum(allspec.^2))
-    normallspec = allspec./magnitude
-    %create a mask for non-cancerous slice 
-    redChannel = u1(:, :, 1);
-    greenChannel = u1(:, :, 2);
-    blueChannel = u1(:, :, 3);
-    
-    mask1 = blueChannel > 250,  greenChannel > 250;
-    figure(4); imshow(mask1)
-    hold on;
-    
-    [x y] = find(mask1 == 0)
+function anomalyfunc(normallspec, s) 
+    %% load Data: NT_187
+    load('ReconResults_Brain_187_NT_20s_300iter_M3_Try1.mat')
+    load("NT_187.mat")
+    mask = imbinarize(NT187)
+
+
+    [x y] = find(mask =~ 1)
     l = length(x)
     healallspec = []
     for k1 = 1:l
@@ -24,13 +13,30 @@ function anomalyfunc(r,r1)
     end
     magnitude = sqrt(sum(healallspec.^2))
     normhealth = healallspec./magnitude
+    %% load Data: NT_158
+    load('ReconResults_Brain_158_NT_30s_300iter_M3_Try1.mat')
+    load("NT_158.mat")
+    mask1 = imbinarize(NT158)
+
+    [x1 y1] = find(mask1 =~ 1)
+    l = length(x)
+    healallspec1 = []
+    for k1 = 1:l
+        healallspec1 = cat(2, healallspec1, squeeze(reconstructedData(x(k1),y(k1),:)))
+    end
+    magnitude1 = sqrt(sum(healallspec1.^2))
+    normhealth1 = healallspec1./magnitude1
+    %%  
+
+
+
         %% Similarity
     similarity = []
     for i = 1:l
         for j = 1:L
             dotprod = sum(normhealth(:,i).*normallspec(:,j))
         end 
-        if dotprod > 0.7
+        if dotprod > s
            similarity = [similarity, 1]
         else
            similarity = [similarity, 2]

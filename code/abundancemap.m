@@ -27,8 +27,8 @@ pixel = allspec./magnitude
 %% mapping
 w= []
 w = [w,dotprods(pixel)]
-t =  reshape(w, [62 2256])
 %%
+t =  reshape(w, [217 2256])
 z = abundvals(t)
 %%
 mask = []
