@@ -19,7 +19,7 @@ function anomalyfunc(normallspec, s)
     mask1 = imbinarize(NT158)
 
     [x1 y1] = find(mask1 =~ 1)
-    l = length(x)
+    l = length(x1)
     healallspec1 = []
     for k1 = 1:l
         healallspec1 = cat(2, healallspec1, squeeze(reconstructedData(x(k1),y(k1),:)))
@@ -27,14 +27,28 @@ function anomalyfunc(normallspec, s)
     magnitude1 = sqrt(sum(healallspec1.^2))
     normhealth1 = healallspec1./magnitude1
     %%  
+    load('ReconResults_Brain_176_NT_20s_300iter_M3_Try1.mat')
+    load("NT_176.mat")
+    mask1 = imbinarize(NT176)
 
+    [x2 y2] = find(mask1 =~ 1)
+    l = length(x2)
+    healallspec2 = []
+    for k1 = 1:l
+        healallspec2 = cat(2, healallspec2, squeeze(reconstructedData(x(k1),y(k1),:)))
+    end
+    magnitude2 = sqrt(sum(healallspec2.^2))
+    normhealth2 = healallspec2./magnitude2
 
+    %% large NT dataset
+    normallhealth = [normhealth,normhealth1, normhealth2]
+    l=length(normallhealth)
 
         %% Similarity
     similarity = []
     for i = 1:l
         for j = 1:L
-            dotprod = sum(normhealth(:,i).*normallspec(:,j))
+            dotprod = sum(normallhealth(:,i).*normallspec(:,j))
         end 
         if dotprod > s
            similarity = [similarity, 1]
