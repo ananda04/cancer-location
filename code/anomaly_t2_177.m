@@ -3,11 +3,11 @@ load('ReconResults_Brain_177_T2_30s_300iter_M3_Try1.mat')
 load("t2_177.mat")
 
 % Mask t2_177
-redChannel = T2158(:, :, 1);
-greenChannel = T2158(:, :, 2);
-blueChannel = T2158(:, :, 3);
+redChannel = T2177(:, :, 1);
+greenChannel = T2177(:, :, 2);
+blueChannel = T2177(:, :, 3);
 
-mask = blueChannel > 251, redChannel > 255, greenChannel > 254;
+mask = blueChannel > 254, redChannel > 254, greenChannel > 254;
 figure(3); imshow(mask)
 hold on;
 
@@ -19,32 +19,30 @@ for k1 = 1:L
 end
 magnitude = sqrt(sum(allspec.^2))
 normallspec = allspec./magnitude
-
 %% load Data: NT_158
 load('ReconResults_Brain_158_NT_30s_300iter_M3_Try1.mat')
 load("NT_158.mat")
-% Mask NT_187
+    % Mask NT_187
 redChannel = NT158(:, :, 1);
 greenChannel = NT158(:, :, 2);
 blueChannel = NT158(:, :, 3);
 
-mask3 = blueChannel > 245, redChannel > 250, greenChannel > 248;
-figure(2); imshow(mask3)
+mask5 = blueChannel > 245, redChannel > 250, greenChannel > 248;
+figure(2); imshow(mask5)
 hold on;
-
-[x y] = find(mask3 == 0)
-l = length(x)
-healallspec = []
+[x1 y1] = find(mask5 ==0)
+l = length(x1)
+healallspec1 = []
 for k1 = 1:l
-    healallspec = cat(2, healallspec, squeeze(reconstructedData(x(k1),y(k1),:)))
+    healallspec1 = cat(2, healallspec1, squeeze(reconstructedData(x1(k1),y1(k1),:)))
 end
-magnitude = sqrt(sum(healallspec.^2))
-normhealth = healallspec./magnitude
+magnitude1 = sqrt(sum(healallspec1.^2))
+normhealth1 = healallspec1./magnitude1
 %% Similarity
 similarity = []
 for i = 1:L
     for j = 1:l
-        dotprod = sum(normhealth(:,j).*normallspec(:,i))
+        dotprod = sum(normhealth1(:,j).*normallspec(:,i))
     end 
     if dotprod > 0.7
        similarity = [similarity, 1]
@@ -52,7 +50,7 @@ for i = 1:L
        similarity = [similarity, 2]
     end 
 end 
-%%
+
 similar1 = transpose(similarity)
 figure(3); imshow(mask)
 hold on;

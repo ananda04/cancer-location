@@ -2,10 +2,16 @@ function anomalyfunc(normallspec, s)
     %% load Data: NT_187
     load('ReconResults_Brain_187_NT_20s_300iter_M3_Try1.mat')
     load("NT_187.mat")
-    mask = imbinarize(NT187)
+    % Mask NT_187
+    redChannel = NT187(:, :, 1);
+    greenChannel = NT187(:, :, 2);
+    blueChannel = NT187(:, :, 3);
+    
+    mask3 = blueChannel > 240, redChannel > 240, greenChannel > 240;
+    figure(2); imshow(mask3)
+    hold on;
 
-
-    [x y] = find(mask =~ 1)
+    [x y] = find(mask3 == 0)
     l = length(x)
     healallspec = []
     for k1 = 1:l
@@ -16,8 +22,14 @@ function anomalyfunc(normallspec, s)
     %% load Data: NT_158
     load('ReconResults_Brain_158_NT_30s_300iter_M3_Try1.mat')
     load("NT_158.mat")
-    mask1 = imbinarize(NT158)
-
+    % Mask NT_158
+    redChannel = NT158(:, :, 1);
+    greenChannel = NT158(:, :, 2);
+    blueChannel = NT187(:, :, 3);
+    
+    mask3 = blueChannel > 240, redChannel > 240, greenChannel > 240;
+    figure(2); imshow(mask3)
+    hold on;
     [x1 y1] = find(mask1 =~ 1)
     l = length(x1)
     healallspec1 = []
