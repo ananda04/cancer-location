@@ -92,53 +92,53 @@ function anomalyfunc(normallspec, s, mask,r,c)
         end
     end
     %%NT_158
-    similarity = []
+    similarity1 = []
     for i = 1:L
         for j = 1:l1
             dotprod = sum(normhealth1(:,j).*normallspec(:,i))
         end 
         if dotprod > s
-           similarity = [similarity, 1]
+           similarity1 = [similarity1, 1]
         else
-           similarity = [similarity, 2]
+           similarity1 = [similarity1, 2]
         end 
     end 
     
-    similar1 = transpose(similarity)
+    similar2 = transpose(similarity1)
     figure(4); imshow(mask)
     hold on;
     for f1 = 1:L
         if similar1(f1) == 1
-            figure(3); plot(c(f1),r(f1),'bx')
+            figure(4); plot(c(f1),r(f1),'bx')
             hold on;
         elseif similar1(f1) == 2
-            figure(3); plot(c(f1),r(f1),'rx')
+            figure(4); plot(c(f1),r(f1),'rx')
             hold on;
         end
     end
 
     %%NT_176
-    similarity = []
+    similarity2 = []
     for i = 1:L
         for j = 1:l2
             dotprod = sum(normhealth2(:,j).*normallspec(:,i))
         end 
         if dotprod > s
-           similarity = [similarity, 1]
+           similarity2 = [similarity2, 1]
         else
-           similarity = [similarity, 2]
+           similarity2 = [similarity2, 2]
         end 
     end 
     
-    similar1 = transpose(similarity)
+    similar3 = transpose(similarity2)
     figure(5); imshow(mask)
     hold on;
     for f1 = 1:L
         if similar1(f1) == 1
-            figure(3); plot(c(f1),r(f1),'bx')
+            figure(5); plot(c(f1),r(f1),'bx')
             hold on;
         elseif similar1(f1) == 2
-            figure(3); plot(c(f1),r(f1),'rx')
+            figure(5); plot(c(f1),r(f1),'rx')
             hold on;
         end
     end

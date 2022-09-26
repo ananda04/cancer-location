@@ -19,7 +19,6 @@ for k1 = 1:L
 end
 magnitude = sqrt(sum(allspec.^2))
 normallspec = allspec./magnitude
-%%
 anomalyfunc(normallspec, 0.7, mask,r,c)
 
 %% load Data: t2_158 -
@@ -42,7 +41,7 @@ for k1 = 1:L
 end
 magnitude = sqrt(sum(allspec.^2))
 normallspec = allspec./magnitude
-anomalyfunc(normallspec, 0.7)
+anomalyfunc(normallspec, 0.7,mask, r,c)
 
 %% load Data: t2_176 -
 load('ReconResults_Brain_176_T2_20s_300iter_M3_Try1.mat')
@@ -65,7 +64,7 @@ for k1 = 1:L
 end
 magnitude = sqrt(sum(allspec.^2))
 normallspec = allspec./magnitude
-anomalyfunc(normallspec, 0.7)
+anomalyfunc(normallspec, 0.7,mask, r,c)
 
 %% load Data: t1_187 -
 load('ReconResults_Brain_187_T1_20s_300iter_M3_Try1.mat')
@@ -110,7 +109,7 @@ for k1 = 1:L
 end
 magnitude = sqrt(sum(allspec.^2))
 normallspec = allspec./magnitude
-anomalyfunc(normallspec, 0.7)
+anomalyfunc(normallspec, 0.7,mask, r,c)
 
 %% load Data: t1_176
 load('ReconResults_Brain_176_T1_20s_300iter_M3_Try1.mat')
@@ -124,7 +123,7 @@ for k1 = 1:L
 end
 magnitude = sqrt(sum(allspec.^2))
 normallspec = allspec./magnitude
-anomalyfunc(normallspec, 0.7)
+anomalyfunc(normallspec, 0.7,mask, r,c)
 
 %% load Data: t1_158
 load('ReconResults_Brain_158_T1_20s_300iter_M3_Try1.mat')
@@ -138,4 +137,4 @@ for k1 = 1:L
 end
 magnitude = sqrt(sum(allspec.^2))
 normallspec = allspec./magnitude
-anomalyfunc(normallspec, 0.7)
+anomalyfunc(normallspec, 0.7,mask, r,c)
