@@ -39,7 +39,7 @@ magnitude2 = sqrt(sum(healallspec2.^2))
 normhealth2 = healallspec2./magnitude2
 normtest = interp1(normhealth2,0:90)
 
-%%
+
 
 %% load Data: t1_158
 load('ReconResults_Brain_158_T1_20s_300iter_M3_Try1.mat')
