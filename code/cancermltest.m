@@ -20,8 +20,6 @@ label0 = zeros(length(normhealth1),1)
 %% Data for GBMT
 load("ReconResults_Model_3_BrainScan_GBMT_FullFanExtent_400iter_M3.mat")
 load("cancerblock.mat")
-
-
 [x y] = find(cancerblock ~= 0)
 l = length(x)
 canallspec = []
@@ -30,7 +28,10 @@ for k1 = 1:l
 end
 magnitude = sqrt(sum(canallspec.^2))
 normcan1 = canallspec./magnitude
-normcan1 = interp1(normcan1, 0:90)
+%normcan1 = interp1(normcan1, 0:90, "nearest")
+qvals1 = 0.04:0.0098:0.5
+qvals2 = 0.04:0.0051:0.5
+normcan1 = interp1(qvals1, normcan1, qvals2)
 label1 = ones(length(normcan1),1)
 
 %%
@@ -38,7 +39,6 @@ label1 = ones(length(normcan1),1)
 response =[label0,
            label1];
 response = transpose(response)
-    %%
 completenorms = [normhealth1,normcan1, 
                  response]
 

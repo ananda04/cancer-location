@@ -16,8 +16,8 @@ for k1 = 1:L
 end
 magnitude = sqrt(sum(allspec.^2))
 normT1158 = allspec./magnitude
-T1158 = cancerNN.predictFcn(normT1158);
-%T1158 = cancerModel.predictFcn(normT1158);
+%T1158 = cancerNN.predictFcn(normT1158);
+T1158 = cancerModel.predictFcn(normT1158);
 hold on;
 L = length(T1158)
 for f1 = 1:L
@@ -48,8 +48,8 @@ for k1 = 1:L
 end
 magnitude = sqrt(sum(allspec.^2))
 normT1176 = allspec./magnitude
-T1176 = cancerNN.predictFcn(normT1176);
-%T1176 = cancerModel.predictFcn(normT1176);
+%T1176 = cancerNN.predictFcn(normT1176);
+T1176 = cancerModel.predictFcn(normT1176);
 
 hold on;
 L = length(T1176)
@@ -84,8 +84,8 @@ for k1 = 1:L
 end
 magnitude = sqrt(sum(allspec.^2))
 normt1187 = allspec./magnitude
-t1187 = cancerNN.predictFcn(normt1187);
-%t1187 = cancerModel.predictFcn(normt1187);
+%t1187 = cancerNN.predictFcn(normt1187);
+t1187 = cancerModel.predictFcn(normt1187);
 
 hold on;
 L = length(t1187)
@@ -127,8 +127,8 @@ for k1 = 1:L
 end
 magnitude = sqrt(sum(allspec.^2))
 normT2177 = allspec./magnitude
-T2177 = cancerNN.predictFcn(normT2177);
-%T2177 = cancerModel.predictFcn(normT2177);
+%T2177 = cancerNN.predictFcn(normT2177);
+T2177 = cancerModel.predictFcn(normT2177);
 
 hold on;
 L = length(T2177)
@@ -162,8 +162,8 @@ for k1 = 1:L
 end
 magnitude = sqrt(sum(allspec.^2))
 normt2187 = allspec./magnitude
-t2187 = cancerNN.predictFcn(normt2187);
-%t2187 = cancerModel.predictFcn(normt2187);
+%t2187 = cancerNN.predictFcn(normt2187);
+t2187 = cancerModel.predictFcn(normt2187);
 
 hold on;
 L = length(t2187)
@@ -197,8 +197,8 @@ for k1 = 1:L
 end
 magnitude = sqrt(sum(allspec.^2))
 normT2158 = allspec./magnitude
-T2158 = cancerNN.predictFcn(normT2158);
-%T2158 = cancerModel.predictFcn(normT2158);
+%T2158 = cancerNN.predictFcn(normT2158);
+T2158 = cancerModel.predictFcn(normT2158);
 
 hold on;
 L = length(T2158)
@@ -232,8 +232,8 @@ for k1 = 1:L
 end
 magnitude = sqrt(sum(allspec.^2))
 normt2176 = allspec./magnitude
-t2176 = cancerNN.predictFcn(normt2176);
-%t2176 = cancerModel.predictFcn(normt2176);
+%t2176 = cancerNN.predictFcn(normt2176);
+t2176 = cancerModel.predictFcn(normt2176);
 
 hold on;
 L = length(t2176)
@@ -266,8 +266,8 @@ end
     end
     magnitude = sqrt(sum(healallspec.^2))
     normNT187 = healallspec./magnitude
-    NT187 = cancerNN.predictFcn(normNT187);
-    %NT187 = cancerModel.predictFcn(normNT187);
+    %NT187 = cancerNN.predictFcn(normNT187);
+    NT187 = cancerModel.predictFcn(normNT187);
     
 hold on;
 L = length(NT187)
@@ -299,8 +299,8 @@ end
     end
     magnitude1 = sqrt(sum(healallspec1.^2))
     normNT158 = healallspec1./magnitude1
-    NT158 = cancerNN.predictFcn(normNT158);
-    %NT158 = cancerModel.predictFcn(normNT158);
+    %NT158 = cancerNN.predictFcn(normNT158);
+    NT158 = cancerModel.predictFcn(normNT158);
     
 hold on;
 L = length(NT158)
