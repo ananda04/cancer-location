@@ -29,9 +29,9 @@ end
 magnitude = sqrt(sum(canallspec.^2))
 normcan1 = canallspec./magnitude
 %normcan1 = interp1(normcan1, 0:90, "nearest")
-qvals1 = 0.04:0.0098:0.5
+%qvals1 = 0.04:0.0098:0.5
 qvals2 = 0.04:0.0051:0.5
-normcan1 = interp1(qvals1, normcan1, qvals2)
+normcan1 = interp1(qvals, normcan1, qvals2)
 label1 = ones(length(normcan1),1)
 
 %%
