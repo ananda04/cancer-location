@@ -40,21 +40,21 @@
     
     hold on;
     [r1 c1] = find(mask1 == 0)
-    L = length(r1)
+    L1 = length(r1)
     allspec = []
-    for k1 = 1:L
-        allspec = cat(2, allspec, squeeze(reconstructedData(r(k1),c(k1),:)))
+    for k1 = 1:L1
+        allspec = cat(2, allspec, squeeze(reconstructedData(r1(k1),c1(k1),:)))
     end
     magnitude = sqrt(sum(allspec.^2))
     normT1176 = allspec./magnitude
     T1176NN = cancerNN.predictFcn(normT1176);
     T1176FT = cancerModel.predictFcn(normT1176);
-    c = cancerSVM.predictFcn(normT1176);
+    T1176SVM = cancerSVM.predictFcn(normT1176);
     hold on;
-    L = length(T1176)
-    tissue_assigner(T1176NN,mask1,r1,c1, L,2,1, "NN")
-    tissue_assigner(T1176FT,mask1,r1,c1, L,2,2, "FT")
-    tissue_assigner(T1176SVM,mask1,r1,c1,L,2,3, "SVM")
+    L1 = length(normT1176)
+    tissue_assigner(T1176NN,mask1,r1,c1, L1,2,1, "NN")
+    tissue_assigner(T1176FT,mask1,r1,c1, L1,2,2, "FT")
+    tissue_assigner(T1176SVM,mask1,r1,c1,L1,2,3, "SVM")
     figure(2); sgtitle("Classificaion of t1176")
 
 %% load Data: t1_187
@@ -81,10 +81,10 @@
     t1187FT = cancerModel.predictFcn(normt1187);
     t1187SVM = cancerSVM.predictFcn(normt1187);
     hold on;
-    L = length(t1187)
-    tissue_assigner(t1187NN,mask2,r2,c2, L,3,1, "NN")
-    tissue_assigner(t1187FT,mask2,r2,c2, L,3,2, "FT")
-    tissue_assigner(t1187SVM,mask2,r2,c2,L,3,3, "SVM")
+    L2 = length(normt1187)
+    tissue_assigner(t1187NN,mask2,r2,c2, L2,3,1, "NN")
+    tissue_assigner(t1187FT,mask2,r2,c2, L2,3,2, "FT")
+    tissue_assigner(t1187SVM,mask2,r2,c2,L2,3,3, "SVM")
     figure(3); sgtitle("Classificaion of t1187")
 %% load Data: t2_177
     load('ReconResults_Brain_177_T2_30s_300iter_M3_Try1.mat')
@@ -118,10 +118,10 @@
     T2177FT = cancerModel.predictFcn(normT2177);
     T2177SVM = cancerSVM.predictFcn(normT2177);
     hold on;
-    L = length(T2177)
-    tissue_assigner(T2177NN,mask3,r3,c3, L,4,1, "NN")
-    tissue_assigner(T2177FT,mask3,r3,c3, L,4,2, "FT")
-    tissue_assigner(T2177SVM,mask3,r3,c3,L,4,3, "SVM")
+    L3 = length(normT2177)
+    tissue_assigner(T2177NN,mask3,r3,c3, L3,4,1, "NN")
+    tissue_assigner(T2177FT,mask3,r3,c3, L3,4,2, "FT")
+    tissue_assigner(T2177SVM,mask3,r3,c3,L3,4,3, "SVM")
     figure(4); sgtitle("Classificaion of T2177")
 %% load Data: t2_187
     load('ReconResults_Brain_187_T2_20s_300iter_M3_Try1.mat')
@@ -147,10 +147,10 @@
     t2187FT = cancerModel.predictFcn(normt2187);
     t2187SVM = cancerSVM.predictFcn(normt2187);
     hold on;
-    L = length(t2187)
-    tissue_assigner(t2187NN,mask4,r4,c4, L,5,1, "NN")
-    tissue_assigner(t2187FT,mask4,r4,c4, L,5,2, "FT")
-    tissue_assigner(t2187SVM,mask4,r4,c4,L,5,3, "SVM")
+    L4 = length(normt2187)
+    tissue_assigner(t2187NN,mask4,r4,c4, L4,5,1, "NN")
+    tissue_assigner(t2187FT,mask4,r4,c4, L4,5,2, "FT")
+    tissue_assigner(t2187SVM,mask4,r4,c4,L4,5,3, "SVM")
     figure(5); sgtitle("Classificaion of t2187")
 %% load Data: t2_158
     load('ReconResults_Brain_177_T2_30s_300iter_M3_Try1.mat')
@@ -176,10 +176,10 @@
     T2158FT = cancerModel.predictFcn(normT2158);
     T2158SVM =  cancerSVM.predictFcn(normT2158);
     hold on;
-    L = length(T2158)
-    tissue_assigner(t2187NN,mask5,r5,c5, L,6,1, "NN")
-    tissue_assigner(t2187FT,mask5,r5,c5, L,6,2, "FT")
-    tissue_assigner(t2187SVM,mask5,r5,c5,L,6,3, "SVM")
+    L5 = length(normT2158)
+    tissue_assigner(t2187NN,mask5,r5,c5, L5,6,1, "NN")
+    tissue_assigner(t2187FT,mask5,r5,c5, L5,6,2, "FT")
+    tissue_assigner(t2187SVM,mask5,r5,c5,L5,6,3, "SVM")
     figure(6); sgtitle("Classificaion of T2158")
 %% load Data: t2_176
     load('ReconResults_Brain_176_T2_20s_300iter_M3_Try1.mat')
@@ -205,10 +205,10 @@
     t2176FT = cancerModel.predictFcn(normt2176);
     t2176SVM = cancerSVM.predictFcn(normt2176);
     hold on;
-    L = length(c)
-    tissue_assigner(t2176NN,mask6,r6,c6, L,7,1, "NN")
-    tissue_assigner(t2176FT,mask6,r6,c6, L,7,2, "FT")
-    tissue_assigner(t2176SVM,mask6,r6,c6,L,7,3, "SVM")
+    L6 = length(normt2176)
+    tissue_assigner(t2176NN,mask6,r6,c6, L6,7,1, "NN")
+    tissue_assigner(t2176FT,mask6,r6,c6, L6,7,2, "FT")
+    tissue_assigner(t2176SVM,mask6,r6,c6,L6,7,3, "SVM")
     figure(7); sgtitle("Classificaion of t2176")
 %% load Data: NT_187
     load('ReconResults_Brain_187_NT_20s_300iter_M3_Try1.mat')
@@ -233,10 +233,10 @@
     NT187FT = cancerModel.predictFcn(normNT187);
     NT187SVM = cancerSVM.predictFcn(normNT187);
     hold on;
-    L = length(NT187)
-    tissue_assigner(t2176NN,mask7,r7,c7, L,8,1, "NN")
-    tissue_assigner(t2176FT,mask7,r7,c7, L,8,2, "FT")
-    tissue_assigner(t2176SVM,mask7,r7,c7,L,8,3, "SVM")
+    L7 = length(normNT187)
+    tissue_assigner(t2176NN,mask7,r7,c7, L7,8,1, "NN")
+    tissue_assigner(t2176FT,mask7,r7,c7, L7,8,2, "FT")
+    tissue_assigner(t2176SVM,mask7,r7,c7,L7,8,3, "SVM")
     figure(8); sgtitle("Classificaion of NT187")
     %% load Data: NT_158
     load('ReconResults_Brain_158_NT_30s_300iter_M3_Try1.mat')
@@ -260,8 +260,8 @@
     NT158FT = cancerModel.predictFcn(normNT158);
     NT158SVM = cancerSVM.predictFcn(normNT158);
     hold on;
-    L = length(NT158)
-    tissue_assigner(t2176NN,mask8,r8,c8, L,9,1, "NN")
-    tissue_assigner(t2176FT,mask8,r8,c8, L,9,2, "FT")
-    tissue_assigner(t2176SVM,mask8,r8,c8,L,9,3, "SVM")
+    L8 = length(normNT158)
+    tissue_assigner(t2176NN,mask8,r8,c8, L8,9,1, "NN")
+    tissue_assigner(t2176FT,mask8,r8,c8, L8,9,2, "FT")
+    tissue_assigner(t2176SVM,mask8,r8,c8,L8,9,3, "SVM")
     figure(9); sgtitle("Classificaion of NT158")
