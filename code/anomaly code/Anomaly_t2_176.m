@@ -7,7 +7,7 @@ redChannel = t2176(:, :, 1);
 greenChannel = t2176(:, :, 2);
 blueChannel = t2176(:, :, 3);
 
-mask = blueChannel > 250, redChannel > 252, greenChannel > 254;
+mask = blueChannel > 250, redChannel > 249, greenChannel > 250;
 figure(3); imshow(mask)
 hold on;
 

@@ -1,5 +1,5 @@
 %% load Data: t2_158
-load('ReconResults_Brain_177_T2_30s_300iter_M3_Try1.mat')
+load('ReconResults_Brain_158_T2_30s_300iter_M3_Try1.mat')
 load("t2_158.mat")
 
 % Mask t2_187
