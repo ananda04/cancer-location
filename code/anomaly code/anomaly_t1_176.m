@@ -9,7 +9,8 @@ blueChannel = T1176(:, :, 3);
 mask = blueChannel > 248, redChannel > 248, greenChannel > 248;
 figure(3); imshow(mask)
 
-hold on;[r c] = find(mask == 0)
+hold on;
+[r c] = find(mask == 0)
 L = length(r)
 allspec = []
 for k1 = 1:L
