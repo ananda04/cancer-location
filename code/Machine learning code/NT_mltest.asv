@@ -49,7 +49,7 @@
     
 % NT_187
     load('ReconResults_Brain_187_NT_20s_300iter_M3_Try1.mat')
-    [mask1 x2 y2] = bmask("NT_187")
+    [mask x2 y2] = bmask("NT_187")
     L = length(x2)
     healallspec2 = []
     for k = 1:L
@@ -63,17 +63,17 @@
     NT187FT = ntModel_FT.predictFcn(normhealth2)
     NT187FSVM = ntModel_FSVM.predictFcn(normhealth2)
     NT187FKNN = ntModel_FKNN.predictFcn(normhealth2)
-    tissue_assigner(NT187WNN,mask1,x1,y1, L,2,1, "WNN")
-    tissue_assigner(NT187FT,mask1,x1,y1, L,2,2, "FT")
-    tissue_assigner(NT187FSVM,mask1,x1,y1,L,2,3, "FSVM")
-    tissue_assigner(NT187SKNN,mask1,x1,y1, L,2,4, "SKNN")
-    tissue_assigner(NT187FKNN,mask1,x1,y1, L,2,5, "FKNN")
-    tissue_assigner(NT187MNN,mask1,x1,y1,L,2,6, "MNN")
+    tissue_assigner(NT187WNN,mask,x1,y1, L,2,1, "WNN")
+    tissue_assigner(NT187FT,mask,x1,y1, L,2,2, "FT")
+    tissue_assigner(NT187FSVM,mask,x1,y1,L,2,3, "FSVM")
+    tissue_assigner(NT187SKNN,mask,x1,y1, L,2,4, "SKNN")
+    tissue_assigner(NT187FKNN,mask,x1,y1, L,2,5, "FKNN")
+    tissue_assigner(NT187MNN,mask,x1,y1,L,2,6, "MNN")
     figure(2); sgtitle("Classificaion of NT_187")
     
 %NT_177
     load("ReconResults_Brain_177_NT_30s_300iter_M3_Try1.mat")
-    [mask2 x3 y3] = bmask("NT_177")
+    [mask x3 y3] = bmask("NT_177")
     L = length(x3)
     healallspec3 = []
     for k = 1:L
@@ -87,16 +87,16 @@
     NT177FT = ntModel_FT.predictFcn(normhealth3)
     NT177FSVM = ntModel_FSVM.predictFcn(normhealth3)
     NT177FKNN = ntModel_FKNN.predictFcn(normhealth3)
-    tissue_assigner(NT177WNN,mask2,x1,y1, L,3,1, "WNN")
-    tissue_assigner(NT177FT,mask2,x1,y1, L,3,2, "FT")
-    tissue_assigner(NT177FSVM,mask2,x1,y1,L,3,3, "FSVM")
-    tissue_assigner(NT177SKNN,mask2,x1,y1, L,3,4, "SKNN")
-    tissue_assigner(NT177FKNN,mask2,x1,y1, L,3,5, "FKNN")
-    tissue_assigner(NT177MNN,mask2,x1,y1,L,3,6, "MNN")
+    tissue_assigner(NT177WNN,mask,x1,y1, L,3,1, "WNN")
+    tissue_assigner(NT177FT,mask,x1,y1, L,3,2, "FT")
+    tissue_assigner(NT177FSVM,mask,x1,y1,L,3,3, "FSVM")
+    tissue_assigner(NT177SKNN,mask,x1,y1, L,3,4, "SKNN")
+    tissue_assigner(NT177FKNN,mask,x1,y1, L,3,5, "FKNN")
+    tissue_assigner(NT177MNN,mask,x1,y1,L,3,6, "MNN")
     figure(3); sgtitle("Classificaion of NT_177")
 % NT_158
     load('ReconResults_Brain_158_NT_30s_300iter_M3_Try1.mat')
-    [mask3 x y] = bmask("NT_158")
+    [mask x y] = bmask("NT_158")
     L = length(x)
     healallspec = []
     for i = 1:L
@@ -110,10 +110,10 @@
     NT158FT = ntModel_FT.predictFcn(normhealth)
     NT158FSVM = ntModel_FSVM.predictFcn(normhealth)
     NT158FKNN = ntModel_FKNN.predictFcn(normhealth)
-    tissue_assigner(NT158WNN,mask3,x1,y1, L,4,1, "WNN")
-    tissue_assigner(NT158FT,mask3,x1,y1, L,4,2, "FT")
-    tissue_assigner(NT158FSVM,mask3,x1,y1,L,4,3, "FSVM")
-    tissue_assigner(NT158SKNN,mask3,x1,y1, L,4,4, "SKNN")
-    tissue_assigner(NT158FKNN,mask3,x1,y1, L,4,5, "FKNN")
-    tissue_assigner(NT158MNN,mask3,x1,y1,L,4,6, "MNN")
+    tissue_assigner(NT158WNN,mask,x1,y1, L,4,1, "WNN")
+    tissue_assigner(NT158FT,mask,x1,y1, L,4,2, "FT")
+    tissue_assigner(NT158FSVM,mask,x1,y1,L,4,3, "FSVM")
+    tissue_assigner(NT158SKNN,mask,x1,y1, L,4,4, "SKNN")
+    tissue_assigner(NT158FKNN,mask,x1,y1, L,4,5, "FKNN")
+    tissue_assigner(NT158MNN,mask,x1,y1,L,4,6, "MNN")
     figure(3); sgtitle("Classificaion of NT_158")
