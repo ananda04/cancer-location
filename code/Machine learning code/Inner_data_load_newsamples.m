@@ -3,7 +3,7 @@
 %% load in NT Slices and label as zero 
 % NT_158
     load('ReconResults_Brain_158_NT_30s_300iter_M3_Try1.mat')
-    [x y] = bmask("NT_158")
+    [mask x y] = bmask("NT_158")
     l = length(x)
     healallspec = []
     for i = 1:l
@@ -17,7 +17,7 @@
                   label0_158]
 % NT_176
     load('ReconResults_Brain_176_NT_20s_300iter_M3_Try1.mat')
-    [x1 y1] = bmask("NT_176")
+    [mask x1 y1] = bmask("NT_176")
     l = length(x1)
     healallspec1 = []
     for j = 1:l
@@ -31,7 +31,7 @@
                   label0_176]
 % NT_187
     load('ReconResults_Brain_187_NT_20s_300iter_M3_Try1.mat')
-    [x2 y2] = bmask("NT_187")
+    [mask x2 y2] = bmask("NT_187")
     l = length(x2)
     healallspec2 = []
     for k = 1:l
@@ -45,7 +45,7 @@
                   label0_187]
 %NT_177
     load("ReconResults_Brain_177_NT_30s_300iter_M3_Try1.mat")
-    [x3 y3] = bmask("NT_177")
+    [mask x3 y3] = bmask("NT_177")
     l = length(x3)
     healallspec3 = []
     for k = 1:l
@@ -191,7 +191,7 @@
     figure(1); title("t1177 data collected from approximated regions")
 % T2_158
     load('ReconResults_Brain_158_T2_30s_300iter_M3_Try1.mat')
-    T2158spec = [squeeze(reconstructedData(52,22,:)),squeeze(reconstructedData(56,25,:)),squeeze(reconstructedData(58,22,:)),squeeze(reconstructedData(62,24,:)),squeeze(reconstructedData(58,32,:)),squeeze(reconstructedData(61,31,:)),squeeze(reconstructedData(61,21,:)),squeeze(reconstructedData(59,20,:)),squeeze(reconstructedData(59,26,:)),squeeze(reconstructedData(60,17,:))]
+    T2158spec = [squeeze(reconstructedData(60,65,:)),squeeze(reconstructedData(62,61,:)),squeeze(reconstructedData(58,61,:)),squeeze(reconstructedData(71,64,:)),squeeze(reconstructedData(66,62,:)),squeeze(reconstructedData(63,60,:)),squeeze(reconstructedData(60,62,:)),squeeze(reconstructedData(58,66,:)),squeeze(reconstructedData(64,66,:)),squeeze(reconstructedData(67,66,:))]
     magT2158 = sqrt(sum(T2158spec.^2))
     normT2158 = T2158spec./magT2158
     label1_T2158 = ones(10,1)
@@ -201,31 +201,31 @@
     [mask] = bmask("T2_158")
     figure(1);imshow(mask)
     hold on;
-    figure(1);plot(22,52,"rX")
+    figure(1);plot(65,60,"rX")
     hold on;
-    figure(1); plot(25,56,"rX")
+    figure(1); plot(61,62,"rX")
     hold on;
-    figure(1); plot(22,58,"rX")
+    figure(1); plot(61,58,"rX")
     hold on;
-    figure(1); plot(24,62,"rX")
+    figure(1); plot(64,71,"rX")
     hold on;
-    figure(1); plot(32,58,"rX")
+    figure(1); plot(62,66,"rX")
     hold on;
-    figure(1); plot(31,61,"rX")
+    figure(1); plot(60,63,"rX")
     hold on;
-    figure(1); plot(21,61,"rX")
+    figure(1); plot(62,60,"rX")
     hold on;
-    figure(1); plot(20,59,"rX")
+    figure(1); plot(66,58,"rX")
     hold on;
-    figure(1); plot(26,59,"rX")
+    figure(1); plot(66,54,"rX")
     hold on;
-    figure(1); plot(17,60,"rX")
+    figure(1); plot(66,67,"rX")
     hold on;
     figure(1); title("t2158 data collected from approximated regions")
 
 % T2_176
     load('ReconResults_Brain_176_T2_20s_300iter_M3_Try1.mat')
-    T2176spec = [squeeze(reconstructedData(87,42,:)),squeeze(reconstructedData(87,37,:)),squeeze(reconstructedData(89,37,:)),squeeze(reconstructedData(89,39,:)),squeeze(reconstructedData(89,33,:)),squeeze(reconstructedData(90,35,:)),squeeze(reconstructedData(55,35,:)),squeeze(reconstructedData(59,38,:)),squeeze(reconstructedData(56,39,:)),squeeze(reconstructedData(57,34,:))]
+    T2176spec = [squeeze(reconstructedData(61,43,:)),squeeze(reconstructedData(64,37,:)),squeeze(reconstructedData(61,35,:)),squeeze(reconstructedData(64,34,:)),squeeze(reconstructedData(65,31,:)),squeeze(reconstructedData(64,27,:)),squeeze(reconstructedData(68,38,:)),squeeze(reconstructedData(70,47,:)),squeeze(reconstructedData(61,47,:)),squeeze(reconstructedData(67,40,:))]
     magT2176 = sqrt(sum(T2176spec.^2))
     normT2176 = T2176spec./magT2176
     label1_T2176 = ones(10,1)
@@ -235,25 +235,25 @@
     [mask] = bmask("T2_176")
     figure(1);imshow(mask)
     hold on;
-    figure(1);plot(42,87,"rX")
+    figure(1);plot(43,61,"rX")
     hold on;
-    figure(1); plot(37,87,"rX")
+    figure(1); plot(40,67,"rX")
     hold on;
-    figure(1); plot(37,89,"rX")
+    figure(1); plot(37,64,"rX")
     hold on;
-    figure(1); plot(39,89,"rX")
+    figure(1); plot(35,61,"rX")
     hold on;
-    figure(1); plot(33,89,"rX")
+    figure(1); plot(34,64,"rX")
     hold on;
-    figure(1); plot(35,90,"rX")
+    figure(1); plot(31,65,"rX")
     hold on;
-    figure(1); plot(35,55,"rX")
+    figure(1); plot(27,64,"rX")
     hold on;
-    figure(1); plot(38,59,"rX")
+    figure(1); plot(38,68,"rX")
     hold on;
-    figure(1); plot(39,56,"rX")
+    figure(1); plot(47,70,"rX")
     hold on;
-    figure(1); plot(34,57,"rX")
+    figure(1); plot(47,61,"rX")
     hold on;
     figure(1); title("t2176 data collected from approximated regions")
 % T2_187
