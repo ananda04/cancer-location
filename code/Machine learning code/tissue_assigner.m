@@ -15,6 +15,13 @@ for f1 = 1:length
         hold on;
         plot(c(f1),r(f1),'rx')
         hold on;
+    end
+    if type(f1) == 2
+        hold on;
+        figure(figure_number);subplot(1,3,subplot_position)
+        hold on;
+        plot(c(f1),r(f1),'rx')
+        hold on;
     end 
 end 
 subplot(1,3,subplot_position)

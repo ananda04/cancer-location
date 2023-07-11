@@ -20,12 +20,11 @@ normhealth1 = healallspec1./magnitude1
 label0 = zeros(length(normhealth1),1)
 %% data for cancerous slice (t1187)
 load("ReconResults_Brain_187_T1_20s_300iter_M3_Try1.mat")
-load("t1187cancerblock.mat")
-[x y] = find(cb == 254)
-l = length(x)
+load("T1187_data.mat")
+l = length(r)
 canallspec = []
 for k = 1:l
-    canallspec = cat(2, canallspec, squeeze(reconstructedData(x(k),y(k),:)))
+    canallspec = cat(2, canallspec, squeeze(reconstructedData(r(k),c(k),:)))
 end
 magnitude = sqrt(sum(canallspec.^2))
 normcan1 = canallspec./magnitude
