@@ -14,7 +14,7 @@
                   label0_187]
 % T1_187
     load("ReconResults_Brain_187_T1_20s_300iter_M3_Try1.mat")
-    load("T1187_cancer.mat")
+    load("T1187_data.mat")
     [r c] = find(a ~= 0)
     l = length(r)
     healallspec1 = []
@@ -29,7 +29,7 @@
                   label1_t1187]
 % t2_187
     load("ReconResults_Brain_187_T2_20s_300iter_M3_Try1.mat")
-    load("T2187_cancer.mat")
+    load("T2187_data.mat")
     [r c] = find(b ~= 0)
     l = length(r)
     healallspec2 = []
