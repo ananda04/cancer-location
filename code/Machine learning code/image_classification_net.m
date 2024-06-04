@@ -1,18 +1,10 @@
 %% load Data
-%unzip("NT_Brain.zip")
-imds = imageDatastore("NT_Brain", ...
-    'LabelSource','foldernames');
-label = [1,0,1,0,1,0,1,0]
-label = num2cell(transpose(label))
-a = [imds.Files, label]
-numTrainFiles = 8;
-c = cvpartition(a,"Holdout",0.25)
-
-%[imdsTrain,imdsValidation] = splitEachLabel(a,numTrainFiles,'randomized');
-
+unzip("Brains.zip")
+imds = imageDatastore("Brains","IncludeSubfolders",1,'LabelSource','foldernames');
+[imdsTrain,imdsValidation] = splitEachLabel(imds,0.75);
 %% Network Architecture 
-inputSize = [1260 974 3];
-numClasses = 10;
+inputSize = [974 1260 3];
+numClasses = 2;
 
 layers = [
     imageInputLayer(inputSize)
@@ -31,3 +23,5 @@ options = trainingOptions('sgdm', ...
     'Plots','training-progress');
 
 net = trainNetwork(imdsTrain,layers,options);
+%%
+YTest = classify(net,imdsValidation);
