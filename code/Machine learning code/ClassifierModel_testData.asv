@@ -1,3 +1,6 @@
+% Author:      Arnav Nanda 
+%              Duke University, Pratt School of Engineering 
+
 %% Model Upload
     load('CancerFT_Model.mat')
     load('CancerNN_Model.mat')
