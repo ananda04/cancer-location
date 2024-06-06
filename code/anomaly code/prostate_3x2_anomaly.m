@@ -1,3 +1,6 @@
+% Author:      Arnav Nanda 
+%              Duke University, Pratt School of Engineering 
+
 load('ReconResults_Prostate_V3_300iter_M3_Try1.mat')
 
 % Create a mask of the background only for prostate slies
