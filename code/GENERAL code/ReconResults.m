@@ -1,6 +1,5 @@
 % Author:      Arnav Nanda 
-%              Apex High School 
-%              Fitzpatrick Center for Interdisciplinary Engineering, Medicine and Applied Science (CIEMAS), Duke University
+%              Duke University, Pratt School of Engineering 
 function normSpec = ReconResults(reconstructedData,r,c)
 l = length(r)
 spec = []
