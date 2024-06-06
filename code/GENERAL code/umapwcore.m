@@ -1,3 +1,5 @@
+% Author:      Arnav Nanda 
+%              Duke University, Pratt School of Engineering 
 
 load('e2.mat')
 imshow(e2)
