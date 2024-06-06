@@ -1,3 +1,6 @@
+% Author:      Arnav Nanda 
+%              Duke University, Pratt School of Engineering 
+
 %% load Data: t1_158
 load('ReconResults_Brain_158_T1_20s_300iter_M3_Try1.mat')
 load("t1_158.mat")
