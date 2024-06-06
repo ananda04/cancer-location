@@ -13,5 +13,5 @@ Code version
 Type (e.g. computer program, source code)
 Web address or publisher (e.g. program publisher, URL)
 
-<author(s) names> (<date>) <title of program/source code> (<code version>) [<type>]. Web address or publisher.
+author(s) names, (date), title of program/source code, (code version) [<type>]., Web address or publisher.
 
