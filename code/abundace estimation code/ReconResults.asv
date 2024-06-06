@@ -1,3 +1,6 @@
+% Author:      Arnav Nanda 
+%              Duke University, Pratt School of Engineering 
+
 function normSpec = ReconResults(reconstructedData,r,c)
 l = length(r)
 spec = []
