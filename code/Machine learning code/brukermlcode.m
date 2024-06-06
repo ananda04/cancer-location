@@ -1,3 +1,6 @@
+% Author:      Arnav Nanda 
+%              Duke University, Pratt School of Engineering 
+
 %% load data
 load('BrainData_andErrorBars.mat',"Cancer_Spec")
 load("BrainData_andErrorBars.mat","GreyMatter_Spec")
