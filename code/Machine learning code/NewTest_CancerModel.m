@@ -1,3 +1,6 @@
+% Author:      Arnav Nanda 
+%              Duke University, Pratt School of Engineering 
+
     %load('new_FSVM_model.mat')
     %load('new_WNN_model.mat')
     %load('new_FT_model.mat')
