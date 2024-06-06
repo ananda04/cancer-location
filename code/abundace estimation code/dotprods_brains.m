@@ -1,3 +1,6 @@
+% Author:      Arnav Nanda 
+%              Duke University, Pratt School of Engineering 
+
 function [t] = dotprods(pixel)
     load('ReconResults_Model_3_BrainScan_GBMT_FullFanExtent_400iter_M3.mat')
 
