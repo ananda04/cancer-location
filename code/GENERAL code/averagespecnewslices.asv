@@ -1,6 +1,5 @@
 % Author:      Arnav Nanda 
-%              Apex High School 
-%              Fitzpatrick Center for Interdisciplinary Engineering, Medicine and Applied Science (CIEMAS), Duke University
+%              Duke University, Pratt School of Engineering 
 
 [mask r c] = bmask("NT_176")
 load("ReconResults_Brain_176_NT_20s_300iter_M3_Try1.mat")
