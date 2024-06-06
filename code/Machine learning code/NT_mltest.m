@@ -1,3 +1,6 @@
+% Author:      Arnav Nanda 
+%              Duke University, Pratt School of Engineering 
+
 %% NT_158 -  Gray  
     load('ReconResults_Brain_158_NT_30s_300iter_M3_Try1.mat')    
     graySpec = [squeeze(reconstructedData(66,13,:)),squeeze(reconstructedData(70,12,:)),squeeze(reconstructedData(73,12,:)),squeeze(reconstructedData(77,12,:)),squeeze(reconstructedData(83,11,:)),squeeze(reconstructedData(58,22,:)),squeeze(reconstructedData(49,36,:)),squeeze(reconstructedData(48,44,:)),squeeze(reconstructedData(49,52,:)),squeeze(reconstructedData(49,56,:)), squeeze(reconstructedData(83,11,:)),squeeze(reconstructedData(86,12,:)),squeeze(reconstructedData(79,11,:)),squeeze(reconstructedData(64,15,:)),squeeze(reconstructedData(54,28,:)),squeeze(reconstructedData(50,34,:)),squeeze(reconstructedData(48,45,:)),squeeze(reconstructedData(54,58,:)),squeeze(reconstructedData(59,58,:)),squeeze(reconstructedData(64,57,:))]
