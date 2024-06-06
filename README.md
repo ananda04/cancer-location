@@ -6,7 +6,7 @@ The APP & CODE sections consist of software used to process the aformentioned da
 
 If any of this code has been used please cite this work
 
-**Author(s) name (Individual or corporation)
+Author(s) name (Individual or corporation)
 Date
 Title of program/source code
 Code version
@@ -14,5 +14,3 @@ Type (e.g. computer program, source code)
 Web address or publisher (e.g. program publisher, URL)
 
 author(s) names, (date), title of program/source code, (code version) [<type>]., Web address or publisher.
-
-**
