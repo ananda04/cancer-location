@@ -1,3 +1,6 @@
+% Author:      Arnav Nanda 
+%              Duke University, Pratt School of Engineering 
+
 load("T1187_data.mat")
 load("ReconResults_Brain_187_T1_20s_300iter_M3_Try1.mat")
 [mask x2 y2] = bmask("NT_187")
