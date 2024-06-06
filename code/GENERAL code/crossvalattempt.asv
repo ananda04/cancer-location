@@ -1,4 +1,6 @@
-
+% Author:      Arnav Nanda 
+%              Apex High School 
+%              Fitzpatrick Center for Interdisciplinary Engineering, Medicine and Applied Science (CIEMAS), Duke University
 
 %% load data
 load('ReconResults_Model_3_BrainScan_GBMT_FullFanExtent_400iter_M3.mat')
