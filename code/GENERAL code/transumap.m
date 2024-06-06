@@ -1,3 +1,6 @@
+% Author:      Arnav Nanda 
+%              Duke University, Pratt School of Engineering 
+
     x = [251,350,464,355,444,563,355,375,315,399] 
     y = [1572,1631,1601,1527,1388,1433,1448,1374,1448,1314]
     A = [x;y]
