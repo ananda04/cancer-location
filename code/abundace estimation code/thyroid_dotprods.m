@@ -1,3 +1,6 @@
+% Author:      Arnav Nanda 
+%              Duke University, Pratt School of Engineering 
+
 function [t] = thyroid_dotprods(pixel)
     load('ReconResults_Thyroid_300iter_M3_Try1.mat')
     load("Thyroid_noncancer_regions.mat")
