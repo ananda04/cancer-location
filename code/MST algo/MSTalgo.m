@@ -1,3 +1,6 @@
+% Author:      Arnav Nanda 
+%              Duke University, Pratt School of Engineering 
+
 % Cancer Image 
 A = imread('HnE.png');
 lab_hne = rgb2lab(A);
