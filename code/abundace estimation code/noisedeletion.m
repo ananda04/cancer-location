@@ -1,4 +1,6 @@
 % moving mean denoising algorithm
+% Author:      Arnav Nanda 
+%              Duke University, Pratt School of Engineering 
 
 load('ReconResults_Model_3_BrainScan_GBMT_FullFanExtent_400iter_M3.mat')
 
