@@ -1,3 +1,6 @@
+% Author:      Arnav Nanda 
+%              Duke University, Pratt School of Engineering 
+
 load("T1187_data.mat")
 load("ReconResults_Brain_187_T1_20s_300iter_M3_Try1.mat")
 normT1187 = ReconResults(reconstructedData,r,c)
