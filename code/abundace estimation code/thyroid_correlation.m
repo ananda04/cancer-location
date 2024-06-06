@@ -1,3 +1,6 @@
+% Author:      Arnav Nanda 
+%              Duke University, Pratt School of Engineering 
+
 load('ReconResults_Thyroid_300iter_M3_Try1.mat')
 load('thyroid.mat')
 
