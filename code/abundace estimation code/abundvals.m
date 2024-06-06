@@ -1,3 +1,6 @@
+% Author:      Arnav Nanda 
+%              Duke University, Pratt School of Engineering 
+
 function z = abundvals(t)
 
     i1 = []
