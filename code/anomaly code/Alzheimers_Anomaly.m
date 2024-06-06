@@ -1,3 +1,6 @@
+% Author:      Arnav Nanda 
+%              Duke University, Pratt School of Engineering 
+
 load('ReconResults_AD_Brain_300iter_M3_BrainScan_7mm_V2_Try2.mat')
 load("reconNormal.mat")
 load('Alzheimers.mat')
