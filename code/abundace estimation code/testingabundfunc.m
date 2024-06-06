@@ -1,3 +1,6 @@
+% Author:      Arnav Nanda 
+%              Duke University, Pratt School of Engineering 
+
 load('ReconResults_Model_3_BrainScan_GBMT_FullFanExtent_400iter_M3.mat')
 allspec = [squeeze(reconstructedData(75,11,:)),squeeze(reconstructedData(75,13,:)),squeeze(reconstructedData(73,13,:)),squeeze(reconstructedData(74,12,:)),squeeze(reconstructedData(66,33,:)),squeeze(reconstructedData(68,30,:)),squeeze(reconstructedData(74,7,:)),squeeze(reconstructedData(71,42,:)),squeeze(reconstructedData(56,21,:)),squeeze(reconstructedData(64,33,:)),squeeze(reconstructedData(66,29,:)),squeeze(reconstructedData(73,11,:)),squeeze(reconstructedData(83,14,:)),squeeze(reconstructedData(86,29,:)),squeeze(reconstructedData(80,26,:)),squeeze(reconstructedData(78,23,:)),squeeze(reconstructedData(66,12,:)),squeeze(reconstructedData(66,16,:)),squeeze(reconstructedData(66,9,:)),squeeze(reconstructedData(66,59,:)),squeeze(reconstructedData(56,39,:)),squeeze(reconstructedData(83,66,:)),squeeze(reconstructedData(67,59,:)),squeeze(reconstructedData(64,12,:)),squeeze(reconstructedData(78,27,:))]
 
