@@ -1,6 +1,5 @@
 % Author:      Arnav Nanda 
-%              Apex High School 
-%              Fitzpatrick Center for Interdisciplinary Engineering, Medicine and Applied Science (CIEMAS), Duke University
+%              Duke University, Pratt School of Engineering 
 
 load('ReconResults_Thyroid_300iter_M3_Try1.mat')
 load('Thyroid_Cancer_regions.mat')
