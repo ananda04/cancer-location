@@ -1,3 +1,6 @@
+% Author:      Arnav Nanda 
+%              Duke University, Pratt School of Engineering 
+
 function anomaly_detection(r,r1) 
     [r c] = find(mask == 0)
     L = length(r)
