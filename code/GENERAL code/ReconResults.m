@@ -1,3 +1,4 @@
+% created by Arnav Nanda
 function normSpec = ReconResults(reconstructedData,r,c)
 l = length(r)
 spec = []
