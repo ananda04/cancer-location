@@ -1,3 +1,6 @@
+% Author:      Arnav Nanda 
+%              Duke University, Pratt School of Engineering 
+
 function tissue_assigner(type,mask,r,c,length,figure_number,subplot_position,String)
 
 %figure(figure_number); subplot(1,4,subplot_position)
