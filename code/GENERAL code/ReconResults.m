@@ -1,4 +1,6 @@
-% created by Arnav Nanda
+% Author:      Arnav Nanda 
+%              Apex High School 
+%              Fitzpatrick Center for Interdisciplinary Engineering, Medicine and Applied Science (CIEMAS), Duke University
 function normSpec = ReconResults(reconstructedData,r,c)
 l = length(r)
 spec = []
